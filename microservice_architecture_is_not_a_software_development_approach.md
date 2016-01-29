@@ -1,17 +1,19 @@
-# Warning to Microservices
+# Microservice architecture is not a software development approach
 
-It is really important to understand that microservices are just an architecture style. It's nothing more than Service Oriented Architecture with a couple of opiniated patterns, principles and practices. These tools give you guidelines in order to create distributed systems. The main goal of this kind of architecture is to enable different teams to work autonomously on different part of a system and thus improve the overall productivity. When well applied microservices are an investment that will allow you to quickly evolve and making choices independently.
+Microservices are often presented in contrast of monolithic applications which are frequently associated to a Big Ball of Mud. If your application is a BBoM don't expect microservices will help. They are not a turnkey solution to good design and modularity.
 
-Microservices are often presented in contrast with monolithic applications which are often associated to a Big Ball of Mud. If your application is a BBoM don't expect that microservices can help. They are not a turnkey solution to good design.
+I think that it is really important to understand that microservices are just an architecture style. It's nothing more than Service Oriented Architecture with a couple of opiniated patterns, principles and practices. These tools give guidelines in order to create distributed systems. The main goal of this kind of architecture is to enable different teams to work autonomously on different part of a system and thus improve the overall productivity. When well applied microservices are an investment that will allow you to quickly evolve and make choices independently from other teams.
 
-Microservices won't help you to improve the quality of your code or your design. This architecture style is not a solution to better understand what your application do and how, how to organise the code to make it less messy or make the application less buggy.
+Microservices won't help you to improve the quality of your code. This architecture style is not a solution to better understand what your application do and how. It doesn't tell you how to organise the code to make it less messy or less buggy.
 
-If you end up with a monolithic BBoM application and you haven't learn from your mistakes you will probably end up just have some micro-BBoM. And probably that the sum of each micro-BBoM is greater than the monolithic BBoM. 
-A solution relying on bad designed / implemented micro-services is worst than a monolithic application.
+If you ended up with a monolithic BBoM application and you haven't learn from your mistakes you will probably still end up with some micro-BBoM. Moreover I think that the sum of each micro-BBoM is probably greater than the monolithic BBoM. 
+A solution relying on bad designed and implemented microservices is worst than a bad monolithic application.
 
-Building, maintaining and monitoring distributed systems is a lot of challenges. The additional complexitiy of distributed system architectures plus the complexity of your application's domain could make the overall system a bigger mess.
+Building, maintaining and monitoring distributed systems is a lot of challenges. **The additional complexitiy of distributed system architectures plus the complexity of your application's domain could make the overall system a bigger mess**.
 
-In order to get the advantages of the microservice architecture in your projects your must have the certain level of maturity.
+In order to get the advantages of the microservice architecture in your projects I think you must have the certain level of maturity. 
+
+Here are some examples of additional complexities introduced by distributed architectures.
 
 ## Domain knowledge and design
 
@@ -20,14 +22,14 @@ The Sam Newman's definition of a microservice is:
 
 Domain Driven Design is a good approach in order to organise microservice according to the domain.
 
-At the beginning the domain model used to solve domain problem will probably evolve a lot in same time you learn the domain. Your will probably want to refactor the model toward deeper insights.
+At the beginning the domain model used to solve domain problems will probably evolve a lot in same time you learn the domain. Your will probably want to refactor the model toward deeper insights.
 
-The risk to fall too quickly in the microservice envy is to too early the domain model accross your distributed system. In a such environment could make it harder and/or slower to try new domain models or improve the existing ones. For instance:
+The risk of falling too quickly in the microservice envy is to have the domain model distributed accross different systems. This situation could make it harder and/or slower to try new domain models or improve the existing ones. For instance:
 
 * you may want to split some parts but your microservice is a dependence of another and if you change something you will break the API and thus compromise all of systems that depend on yours;
 * you discovered that some concepts distributed accross several micro services are tightly related and it could be better to group them. Unfortunatly these micro services are owned by another team so you have to be synchronised with them. 
 
-The risk of applying microservice architecture too quickly in the application life is to make experiments harder. So you may end up with a couple of micro services that don't really do the right job or do the job right.
+The risk of applying microservice architecture too early in the application life is to make experiments harder. So you may end up with a couple of microservices that don't really do the right job or do the job right.
 
 It is better to start applying microservices when you already have a good knowledge of your domain and your models are mature enough.
 
@@ -37,13 +39,14 @@ It is better to start applying microservices when you already have a good knowle
 
 A major goal of the microservice architecture style is the capability of each small service to evolve autonomously. Each service has its own release planning and versionning.
 
-An application only exists to solve its end users problems. When composed of distributed system an application's version is equal to the set of all versions of all microservices used.
+An application only exists to solve its end users problems. When composed of distributed systems an application's version is equal to the set of all versions of all microservices involved.
 
-If your microservice pass the acceptance test with some version of its dependencies would it be still ok in the production environment where the versions of your dependenances are not the same? The key thing is how in a microservices environment you deal with services dependencies, their versionning and their release.
+If your microservices pass the acceptance tests with some versions of its dependencies would it be still ok in the production environment where the versions of your dependenances are not the same? The key thing is how in a microservices environment you deal with services dependencies, their versionning and their release.
 
 The worst case is to solve this problem by creating a monolithic-distributed application where all of your microservices are release together and push togerther in production. It is totally against the microservice phylosophy.
 
 Probably some practices like agile acceptance testing, consumer-driven contract and continous delivery could solve (at least partially) the problem.
+
 However in order to apply these practices you have to have the culture of automation.
 
 ### Evolving APIs
@@ -52,13 +55,13 @@ Microservices communicates together through APIs that hides implementation detai
 
 In a microservice environment you don't control the consumers of your API. You can't force all of your clients to use your new API. You must still support the old one until all services that depends on you updates their code.
 
-To solve this problem the API versionning come in the game. But once your have a new version you have deprecate the old one, communicate to other teams and do the needed stuff in order to one day remove the old endpoints. This also add complexities.
+To solve this problem the API versionning comes in the game. But once you have a new version you have to deprecate the old one, communicate to other teams and do the needed stuff in order to one day remove the old endpoints. This also add complexities and rigor in practices.
 
 ### Documentation
 
-A service only exist in order to be called. To be called you have to provide to your consumer a high quality documentation. Your must also keep it up to date as your code API evolve.
+A service only exists in order to be called. To be called you have to provide to your consumers a high quality documentation. Your must also keep it up to date as your code API evolve.
 
-The risk of a bad documentation is misuse of your API which could cause buggy client code and compromise the overall.
+The risk of a bad documentation is the wrong use of your API which could cause buggy client code and compromise the overall system.
 
 ### Monitoring and Debugging
 
@@ -68,23 +71,28 @@ Tracing and correlation accross system.
 
 ### Failure
 
-How do you avoid the propagation of a failure across all of your system?
+How do you avoid the propagation of a failure all over your system?
 
 ## Conclusion
 
-Working with micro services is not an easy thing. Dealing with distributed system have a lot of complexities.
+Working with microservices is really hard due to their complexity. The set of potential problems related to distributed systems contains more points than the small list I mentionned in this article.
 
-Falling to early in the microservice envy could move you away from the first concern of your application: solving business problems.
+Maybe microservices are a solution for you but maybe not. Falling too early in the microservice envy could move you away from the first purpose of your application: solving business problems. 
 
-Microservices architecture have a lot of advantages only if you apply it well. Applying it requires skills and practices.
+Microservice architecture have a lot of advantages in terms of deployment and release management. But it is only true if you apply it well. Applying it well requires skills and practices.
 
-It could be harder to deal with problem issued by a misused of microservices than dealing with monolithic application problems. Sometimes it does not worth.
+It could be harder to deal with problems issued by distributed systems than dealing with monolithic application problems. It might not be worth.
+
+My advice is that we should first design a monolithic application and try to apply a good and modular design and then move step by step to a microservices architecture... only if needed. If you have designed a modular monolithic application it should be easy to evolve to a distributed application.
+
+Approach like Domain Driven Design really helps you to deal the complexity of your application and create modular design. Principles like Clean Code gives you some practices in order to improve your code quality. These tools can really give your keys to create better software. Not the microservice architecture.
+
+
+## REMAINING
+
 
 The productivity could fall. The bug fixing in a distributed environement may have a slower convergence time.
 
-Design first monolithic app and try to apply good and modular design and then move step by step to a microservices architecture.
-
-## REMAINING
 However 
 
 Moreover it is really important to understand what you need. Modularity doesn't necesserally means microservces.
