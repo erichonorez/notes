@@ -1,0 +1,17 @@
+plugins {
+    id 'org.asciidoctor.convert' version '1.5.8'
+    id 'org.kordamp.gradle.livereload' version '0.2.1'
+}
+
+apply plugin: 'org.asciidoctor.convert'
+apply plugin: 'org.kordamp.gradle.livereload'
+
+asciidoctor {
+    sourceDir = file('src/main/asciidoc')
+    outputDir = file('target/')
+    attributes  toc                 : ''
+}
+
+liveReload {
+    docRoot asciidoctor.outputDir.canonicalPath
+}

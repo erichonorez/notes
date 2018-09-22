@@ -1,0 +1,36 @@
+= Gradle
+
+== Asciidoc project
+
+.default build.gradle file for asciidoc project
+```
+apply plugin: 'org.asciidoctor.convert'
+apply plugin: 'org.kordamp.gradle.livereload'
+
+asciidoctor {
+    sourceDir = file('src/main/asciidoc')
+    outputDir = file('target/')
+    attributes  toc                 : 'left'
+}
+
+liveReload {
+    docRoot asciidoctor.outputDir.canonicalPath
+}
+```
+
+```bash
+./gradlew asciidoc
+```
+Generates the documentation.
+
+
+```bash
+./gradlew -t asciidoc
+```
+Enables continous build.
+
+
+```bash
+./gradle liveReload
+```
+Enables live reload.

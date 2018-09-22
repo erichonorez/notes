@@ -1,0 +1,13 @@
+= Notes
+
+== A
+
+* link:a/awesome_functional_programming.html[awesome functional programming]
+
+== G
+
+* link:g/gradle.html[gradle]
+
+== J
+
+* link:j/jekyll.html[jekyll]
