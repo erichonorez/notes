@@ -1,0 +1,3 @@
+# Awesome CQRS
+
+* https://www.confluent.io/blog/event-sourcing-cqrs-stream-processing-apache-kafka-whats-connection/[Event sourcing, CQRS, stream processing and Apache Kafka: What’s the connection?]
