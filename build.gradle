@@ -10,6 +10,11 @@ asciidoctor {
     sourceDir = file('src/main/asciidoc')
     outputDir = file('target/')
     attributes  toc                 : ''
+    resources {
+      from('src/main/resources') {
+        include '**'
+      }
+    }
 }
 
 liveReload {

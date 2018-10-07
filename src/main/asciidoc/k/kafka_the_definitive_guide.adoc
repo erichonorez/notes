@@ -1,0 +1,31 @@
+= Kafka: The Definitive Guide
+
+== Meet Kafka
+
+*pg 4* - Messages and Batches : 
+
+_Keys are used when messages are to be written to partitions in a more controlled manner._ The simplest _assures that messages with the same key are always written to the same partition_ by _generate a consistent hash of the key, and then select the partition number for that message by taking the result of the hash modulo, the total number of partitions in the topic_
+
+*pg 5* - Topics and Partitions
+
+_there is no guarantee of message time-ordering across the entire topic, just within a single partition._
+
+_Partitions are also the way that Kafka provides redundancy and scalability_
+
+*pg 6* - _The ... reads the messages in the order in which they were produced._ (in a partition). 
+
+_The consumer keeps track of which messages it has already consumed by keeping track of the offset of messages._
+
+*pg 7* - _Each message in a given partition has a unique offset._
+
+_The group assures that each partition is only consumed by one member_
+
+_consumers can horizontally scale to consume topics_
+
+_if a single consumer fails, the remaining members of the group will rebalance the partitions being consumed to take over for the missing member_
+
+== Installing kafka
+
+*pg 19* - Installing zookeeper
+
+Recommended nodes in the ensemble 5 max 7 min 3.
