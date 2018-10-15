@@ -7,5 +7,4 @@
 * https://github.com/aol/cyclops-react[cyclops-react] 
 * https://github.com/derive4j/derive4j[derive4j]
 * http://www.functionaljava.org/[functionaljava]
-* http://www.functionaljava.org/[functionaljava]
 * https://github.com/highj/highj[highj]
