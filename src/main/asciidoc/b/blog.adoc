@@ -1,0 +1,7 @@
+= Blog
+
+== Subjects to talk about
+
+* functional visitor pattern with fold Java
+* Imperative VS functional validation in Java
+* Smart constructor in Java 
