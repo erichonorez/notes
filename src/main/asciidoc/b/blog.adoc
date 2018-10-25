@@ -5,3 +5,5 @@
 * functional visitor pattern with fold Java
 * Imperative VS functional validation in Java
 * Smart constructor in Java 
+* Phantom types
+* Avoid reflection (Bean validation, Marshalling)
