@@ -1,0 +1,4 @@
+= Awsome Event Storming
+
+* https://github.com/mariuszgil/awesome-eventstorming[A curated list of event storming resources on the web]
+* https://blog.redelastic.com/corporate-arts-crafts-modelling-reactive-systems-with-event-storming-73c6236f5dd7[Modelling Reactive Systems with Event Storming and Domain-Driven Design]
