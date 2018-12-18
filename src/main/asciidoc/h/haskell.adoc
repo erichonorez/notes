@@ -7,4 +7,12 @@
 == Monad Transformers
 
 * https://two-wrongs.com/a-gentle-introduction-to-monad-transformers[A gentle introduction to monad transformer]
-* https://www.schoolofhaskell.com/user/commercial/content/monad-transformers[Monad transformers @ school of haskell] 
+* https://www.schoolofhaskell.com/user/commercial/content/monad-transformers[Monad transformers @ school of haskell]
+
+== Servant
+
+* https://vadosware.io/post/rest-ish-services-in-haskell-part-1/[Rest-ish services in haskell]
+
+== Functional architecture
+
+* https://www.reddit.com/r/haskell/comments/6lma9o/hexagonal_architecture_and_free_monad_two_related/[Hexagonal architecture and free monad on reddit]
